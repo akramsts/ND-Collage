@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Cover Page | ND College</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="cover-page.css">
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <div class="top-bar no-print">
+        <a href="#" onclick="history.back(); return false;" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Website
+        </a>
+        <h2>Cover Page Generator</h2>
+        <div></div>
+    </div>
+
+    <div class="main-container">
+        
+        <!-- STEP 1: Form Section -->
+        <div id="step-1" class="step-section active no-print">
+            <div class="form-card">
+                <h3>Student Details</h3>
+                <p>Please fill all details correctly before generating the cover page.</p>
+                
+                <div class="input-group">
+                    <label>Assignment / Practical Topic</label>
+                    <input type="text" id="in-topic" placeholder="e.g., Physics Practical Record">
+                </div>
+
+                <div class="input-group">
+                    <label>Submitted By (Student Name)</label>
+                    <input type="text" id="in-name" placeholder="Your Full Name">
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Course / Class</label>
+                        <input type="text" id="in-course" placeholder="e.g., B.Sc Part 1">
+                    </div>
+                    <div class="input-group">
+                        <label>Subject</label>
+                        <input type="text" id="in-subject" placeholder="e.g., Zoology Honors">
+                    </div>
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Roll Number</label>
+                        <input type="text" id="in-roll" placeholder="College / Exam Roll No">
+                    </div>
+                    <div class="input-group">
+                        <label>Registration Number</label>
+                        <input type="text" id="in-reg" placeholder="University Reg No">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Submitted To (Teacher's Name)</label>
+                    <input type="text" id="in-teacher" placeholder="Professor's Name">
+                </div>
+                
+                <button onclick="goToStep2()" class="btn-primary">Next: Preview Page <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- STEP 2: Preview Section -->
+        <div id="step-2" class="step-section">
+            
+            <!-- Sirf 2 zaroori buttons: Edit aur Print/Save PDF -->
+            <div class="action-buttons no-print">
+                <button onclick="goToStep1()" class="btn-secondary"><i class="fa-solid fa-pen"></i> Edit Details</button>
+                <button onclick="window.print()" class="btn-primary"><i class="fa-solid fa-print"></i> Print / Save PDF</button>
+            </div>
+
+            <!-- Premium A4 Sheet Design -->
+            <div class="a4-sheet" id="print-area">
+                <div class="sheet-border">
+                    <div class="college-header">
+                        <div class="logo-placeholder">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h1>ND COLLEGE, PURNEA</h1>
+                        <p>A Premier Institution Affiliated to Purnea University, Purnea</p>
+                    </div>
+
+                    <div class="session-box">
+                        <h2>ASSIGNMENT / PRACTICAL RECORD</h2>
+                    </div>
+
+                    <div class="topic-box">
+                        <h3 id="out-topic">Topic Name Here</h3>
+                    </div>
+
+                    <div class="details-container">
+                        <div class="details-box submitted-to">
+                            <h4>SUBMITTED TO</h4>
+                            <p id="out-teacher">Teacher's Name</p>
+                        </div>
+                        
+                        <div class="details-box submitted-by">
+                            <h4>SUBMITTED BY</h4>
+                            <table class="student-table">
+                                <tr>
+                                    <td><strong>Name:</strong></td>
+                                    <td id="out-name">Student Name</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Class:</strong></td>
+                                    <td id="out-course">Class/Course</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Subject:</strong></td>
+                                    <td id="out-subject">Subject Name</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Roll No:</strong></td>
+                                    <td id="out-roll">Roll Number</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Reg No:</strong></td>
+                                    <td id="out-reg">Registration No</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="signature-section">
+                        <div class="sign-box">Signature of Teacher</div>
+                        <div class="sign-box">Signature of Student</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript logic -->
+    <script>
+        function goToStep2() {
+            // Data Update karein
+            document.getElementById('out-topic').innerText = document.getElementById('in-topic').value || 'Topic Name Here';
+            document.getElementById('out-name').innerText = document.getElementById('in-name').value || 'Student Name';
+            document.getElementById('out-course').innerText = document.getElementById('in-course').value || 'Class/Course';
+            document.getElementById('out-subject').innerText = document.getElementById('in-subject').value || 'Subject Name';
+            document.getElementById('out-roll').innerText = document.getElementById('in-roll').value || 'Roll Number';
+            document.getElementById('out-reg').innerText = document.getElementById('in-reg').value || 'Registration No';
+            document.getElementById('out-teacher').innerText = document.getElementById('in-teacher').value || "Teacher's Name";
+
+            // Screen switch karein
+            document.getElementById('step-1').classList.remove('active');
+            document.getElementById('step-2').classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        function goToStep1() {
+            // Wapas Form par jayein
+            document.getElementById('step-2').classList.remove('active');
+            document.getElementById('step-1').classList.add('active');
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+</html>

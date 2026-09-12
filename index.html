@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ND College, Purnea - A premier private institution affiliated with Purnea University offering graduation courses.">
+    <title>ND College | Affiliated to Purnea University</title>
+    
+    <!-- Fix for Dark Mode Flash Bug -->
+    <script>
+        if(localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Floating Capsule Navigation -->
+    <header class="capsule-nav">
+        <a href="#home" class="logo" aria-label="ND College Home">
+            <i class="fa-solid fa-graduation-cap"></i> ND College
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#programs">Courses</a></li>
+                <li><a href="#gallery">Campus</a></li>
+                <li><a href="#student-corner">Student Corner</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+            </ul>
+        </nav>
+        <div class="nav-actions">
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                <i class="fa-solid fa-moon"></i> 
+            </button>
+            <a href="#admissions" class="btn btn-pill nav-btn">Apply Now</a>
+            <button class="mobile-menu-btn" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay"></div>
+
+    <!-- Split-Screen Hero -->
+    <section id="home" class="hero-modern">
+        <div class="hero-text-side reveal">
+            <div class="badge-modern">Established in 2003</div>
+            <h1>Empowering<br>Your <span class="text-gradient">Future.</span></h1>
+            <p>Welcome to ND College, a premier <strong>private institution affiliated with Purnea University</strong>. Experience an education built for the modern world, shaping the leaders of tomorrow.</p>
+            <div class="hero-buttons-left">
+                <a href="#programs" class="btn btn-gradient">Explore Courses <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="hero-mini-stats">
+                <div><strong>20+</strong> Years of Trust</div>
+                <div><strong>Top</strong> in Purnea</div>
+            </div>
+        </div>
+        
+        <div class="hero-visual-side reveal">
+            <div class="image-wrapper main-img">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000&auto=format&fit=crop" alt="ND College Students Collaborating">
+            </div>
+            <div class="floating-card">
+                <i class="fa-solid fa-award"></i>
+                <div>
+                    <h4>Affiliated With</h4>
+                    <span>Purnea University</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Stats -->
+    <section class="stats-section">
+        <div class="stats-grid reveal">
+            <div class="stat-card">
+                <i class="fa-solid fa-users stat-icon"></i>
+                <h3 class="counter" data-target="2000">0</h3><span>+</span>
+                <p>Active Students</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-chart-line stat-icon"></i>
+                <h3 class="counter" data-target="95">0</h3><span>%</span>
+                <p>Passing Rate</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-chalkboard-user stat-icon"></i>
+                <h3 class="counter" data-target="40">0</h3><span>+</span>
+                <p>Expert Faculty</p>
+            </div>
+            <div class="stat-card">
+                <i class="fa-solid fa-book-open stat-icon"></i>
+                <h3 class="counter" data-target="15">0</h3><span>+</span>
+                <p>Subjects Offered</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs">
+        <div class="section-header reveal">
+            <h2>Our Graduation Programs</h2>
+            <p>Comprehensive degree courses designed to build a strong foundation for your career.</p>
+        </div>
+        <div class="card-grid">
+            <div class="card reveal">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1000&auto=format&fit=crop');" aria-label="Science Lab"></div>
+                <div class="card-body">
+                    <h3>Bachelor of Science (B.Sc.)</h3>
+                    <p>Dive deep into Physics, Chemistry, Mathematics, and Biology with our advanced laboratories.</p>
+                    <a href="#admissions" class="link-btn auto-select-btn" data-course="bsc">Apply for B.Sc. <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop');" aria-label="Library Books"></div>
+                <div class="card-body">
+                    <h3>Bachelor of Arts (B.A.)</h3>
+                    <p>Explore humanities, literature, and social sciences. Perfect preparation for civil services.</p>
+                    <a href="#admissions" class="link-btn auto-select-btn" data-course="ba">Apply for B.A. <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000&auto=format&fit=crop');" aria-label="Commerce Graphs"></div>
+                <div class="card-body">
+                    <h3>Bachelor of Commerce (B.Com)</h3>
+                    <p>Master the fundamentals of accounting, economics, and modern business management strategies.</p>
+                    <a href="#admissions" class="link-btn auto-select-btn" data-course="bcom">Apply for B.Com <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Gallery -->
+    <section id="gallery" class="gallery-section reveal">
+        <div class="section-header">
+            <h2>Life at ND College</h2>
+        </div>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=800&auto=format&fit=crop" class="gallery-item large" alt="College Main Campus">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop" class="gallery-item" alt="Graduation Ceremony">
+            <img src="https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=800&auto=format&fit=crop" class="gallery-item" alt="College Library">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop" class="gallery-item wide" alt="Computer IT Lab">
+        </div>
+    </section>
+
+    <!-- Testimonials Slider -->
+    <section class="testimonials reveal">
+        <div class="section-header">
+            <h2>Student Success Stories</h2>
+        </div>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <i class="fa-solid fa-quote-left quote-icon"></i>
+                        <p>"ND College gave me the perfect environment to complete my B.Sc. The teachers here are incredibly supportive."</p>
+                        <h4>Rahul Kumar</h4>
+                        <span>B.Sc Graduate</span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <i class="fa-solid fa-quote-left quote-icon"></i>
+                        <p>"My B.A. years at ND College were truly transformative. The quiet campus at Rambagh is the best place for focused studies."</p>
+                        <h4>Priya Singh</h4>
+                        <span>B.A. Graduate</span>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-card">
+                        <i class="fa-solid fa-quote-left quote-icon"></i>
+                        <p>"The commerce department helped me build a strong foundation. Today, I'm pursuing higher studies thanks to ND College."</p>
+                        <h4>Amit Patel</h4>
+                        <span>B.Com Graduate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Student Corner Section -->
+    <section id="student-corner" class="student-corner reveal">
+        <div class="section-header">
+            <h2>Student Corner</h2>
+            <p>Download important exam forms, syllabus, and college scheme details directly from here.</p>
+        </div>
+        <div class="corner-grid">
+            <!-- Item 1: Exam Forms -->
+            <div class="corner-card">
+                <div class="corner-icon">
+                    <i class="fa-solid fa-file-signature"></i>
+                </div>
+                <div class="corner-info">
+                    <h3>Exam Form Fillup</h3>
+                    <p>Purnea University Part 1, 2 & 3 Examination forms for regular students.</p>
+                </div>
+                <a href="#" class="btn btn-outline" download>Download PDF</a>
+            </div>
+
+            <!-- Item 2: Syllabus -->
+            <div class="corner-card">
+                <div class="corner-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="corner-info">
+                    <h3>Course Syllabus</h3>
+                    <p>Latest syllabus for B.Sc, B.A, and B.Com as per the New Education Policy.</p>
+                </div>
+                <a href="#" class="btn btn-outline" download>Download PDF</a>
+            </div>
+
+            <!-- Item 3: Schemes -->
+            <div class="corner-card">
+                <div class="corner-icon">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <div class="corner-info">
+                    <h3>Scholarship & Schemes</h3>
+                    <p>Bihar Student Credit Card and other college scheme verification forms.</p>
+                </div>
+                <a href="#" class="btn btn-outline" download>Download PDF</a>
+            </div>
+
+            <!-- Item 4: Cover Page -->
+            <div class="corner-card">
+                <div class="corner-icon">
+                    <i class="fa-solid fa-file-invoice"></i>
+                </div>
+                <div class="corner-info">
+                    <h3>Cover Page</h3>
+                    <p>Assignment, practical aur project file ke aage lagane wala standard front page.</p>
+                </div>
+                <a href="cover-page.html" class="btn btn-outline">Create Cover Page</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Form -->
+    <section id="admissions" class="admissions reveal">
+        <div class="form-container">
+            <div class="form-info">
+                <h2>Begin Your Journey</h2>
+                <p>Fill out the inquiry form and our admission counselors will contact you to guide you through the process.</p>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-location-dot"></i> Rambagh, Purnea, Bihar, India</li>
+                    <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
+                    <li><i class="fa-solid fa-envelope"></i> admission@ndcollege.in</li>
+                </ul>
+            </div>
+            <form class="contact-form" id="applyForm">
+                <div class="input-group">
+                    <input type="text" placeholder="Student's Full Name" required aria-label="Full Name">
+                    <input type="tel" placeholder="Mobile Number" required aria-label="Mobile Number" pattern="[0-9]{10}">
+                </div>
+                
+                <!-- Custom Select Dropdown -->
+                <div class="custom-select-wrapper" id="customCourseSelect">
+                    <div class="custom-select-trigger">
+                        <span class="custom-select-text">Select Course of Interest</span>
+                        <i class="fa-solid fa-chevron-down custom-select-icon"></i>
+                    </div>
+                    <div class="custom-select-options">
+                        <div class="custom-option" data-value="bsc">Bachelor of Science (B.Sc.)</div>
+                        <div class="custom-option" data-value="ba">Bachelor of Arts (B.A.)</div>
+                        <div class="custom-option" data-value="bcom">Bachelor of Commerce (B.Com)</div>
+                    </div>
+                    <!-- Hidden input to store selected value for the form -->
+                    <input type="hidden" id="courseSelect" required>
+                </div>
+
+                <textarea id="inquiryText" rows="3" placeholder="Any questions? (Optional)" aria-label="Questions" maxlength="1000" style="resize: none; overflow: hidden;"></textarea>
+                <button type="submit" class="btn btn-gradient btn-block">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>ND College</h2>
+                <p style="color: var(--primary); font-weight: 600; margin-bottom: 5px;">A Private College Affiliated to Purnea University</p>
+                <p>Empowering minds in Purnea since 2003.</p>
+            </div>
+            <div class="socials">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> ND College, Purnea. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a href="#home" class="scroll-top" aria-label="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

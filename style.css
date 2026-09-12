@@ -1,0 +1,524 @@
+/* =========================================
+   1. Core Variables & Dark Mode Theme
+========================================= */
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --accent: #f59e0b;
+    --gradient: linear-gradient(135deg, #4f46e5, #ec4899);
+    
+    --bg-main: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+[data-theme="dark"] {
+    --primary: #6366f1;
+    --primary-hover: #818cf8;
+    --bg-main: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: #334155;
+    --shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* =========================================
+   2. Base Reset & Typography
+========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color 0.4s, color 0.4s;
+    overflow-x: hidden; 
+}
+
+/* Focus Accessibility - Form boxes ko isse bahar nikal diya gaya hai taaki shape kharab na ho */
+a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* =========================================
+   3. Navigation (Header)
+========================================= */
+.capsule-nav {
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+    width: 95%; max-width: 1100px;
+    background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 25px; border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08); z-index: 1000;
+    border: 1px solid rgba(255, 255, 255, 0.5); transition: all 0.3s;
+}
+[data-theme="dark"] .capsule-nav { background: rgba(15, 23, 42, 0.85); border-color: rgba(255, 255, 255, 0.1); }
+
+/* Scrolled Header Fix */
+.capsule-nav.scrolled { 
+    width: 100%; top: 0; border-radius: 0; max-width: 100%; 
+    border-color: transparent; 
+    border-bottom: 1px solid var(--border); 
+}
+[data-theme="dark"] .capsule-nav.scrolled {
+    border-color: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.capsule-nav .logo { font-weight: 800; font-size: 1.2rem; display: flex; gap: 8px; align-items: center; color: var(--text-main); text-decoration: none; }
+.nav-links { display: flex; gap: 30px; list-style: none; }
+.nav-links a { color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+.nav-links a:hover { color: var(--primary); }
+.nav-actions { display: flex; align-items: center; gap: 15px; }
+.theme-btn { background: none; border: none; color: var(--text-main); font-size: 1.2rem; cursor: pointer; transition: 0.3s; }
+.theme-btn:hover { color: var(--primary); }
+.mobile-menu-btn { display: none; color: var(--text-main); font-size: 1.5rem; cursor: pointer; background: none; border: none; }
+
+/* Buttons */
+.btn { padding: 12px 24px; border-radius: 8px; font-weight: 600; text-decoration: none; cursor: pointer; border: none; display: inline-block; transition: all 0.3s; text-align: center; }
+
+/* Perfect Pill Shape for Apply Now */
+.btn-pill { 
+    background: var(--text-main); 
+    color: var(--bg-main); 
+    border-radius: 999px; /* Perfect round edges */
+    padding: 10px 24px; 
+    font-weight: 700; 
+}
+.btn-pill:hover { 
+    background: var(--primary); 
+    color: white; 
+    transform: none; /* Scale up removed */
+}
+
+/* Explore Courses Button Animation Fix */
+.btn-gradient { 
+    background: var(--gradient); 
+    color: white; 
+    border-radius: 999px; 
+    padding: 15px 32px; 
+    box-shadow: 0 10px 20px rgba(236, 72, 153, 0.2); 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center;
+    gap: 8px; /* Fixed gap keeps the box size same */
+    transition: 0.3s;
+}
+.btn-gradient i {
+    transition: transform 0.3s ease; /* Arrow will animate separately */
+}
+.btn-gradient:hover { 
+    box-shadow: 0 15px 25px rgba(236, 72, 153, 0.4); 
+    color: white; 
+    transform: none; 
+}
+.btn-gradient:hover i {
+    transform: translateX(6px); /* Only arrow moves forward */
+}
+.btn-block { width: 100%; margin-top: 10px; }
+
+/* =========================================
+   4. Hero Section
+========================================= */
+.hero-modern { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; padding: 130px 5% 50px; align-items: center; max-width: 1400px; margin: 0 auto; }
+.hero-text-side { padding-right: 20px; }
+.badge-modern { display: inline-block; padding: 8px 16px; border-radius: 8px; background: rgba(79, 70, 229, 0.1); color: var(--primary); font-weight: 700; font-size: 0.9rem; margin-bottom: 25px; }
+.hero-modern h1 { font-size: clamp(2.8rem, 5vw, 5.5rem); line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 25px; color: var(--text-main); }
+.text-gradient { background: var(--gradient); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-modern p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 40px; max-width: 480px; line-height: 1.7; }
+.hero-mini-stats { display: flex; gap: 40px; margin-top: 50px; padding-top: 30px; border-top: 1px solid var(--border); }
+.hero-mini-stats strong { font-size: 1.6rem; display: block; color: var(--text-main); font-weight: 800; }
+.hero-visual-side { position: relative; height: 100%; display: flex; align-items: center; justify-content: center; }
+.image-wrapper img { width: 100%; height: 600px; object-fit: cover; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+.floating-card { position: absolute; bottom: 50px; left: -40px; background: var(--bg-card); padding: 20px 30px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 15px; border: 1px solid var(--border); animation: float 4s ease-in-out infinite; }
+.floating-card i { font-size: 2rem; color: #f59e0b; background: rgba(245, 158, 11, 0.1); padding: 15px; border-radius: 12px; }
+.floating-card h4 { color: var(--text-main); }
+.floating-card span { color: var(--text-muted); font-size: 0.9rem; }
+@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+
+/* =========================================
+   5. General Sections & Components
+========================================= */
+section { padding: 5rem 5%; }
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-header h2 { font-size: 2.5rem; color: var(--text-main); margin-bottom: 10px; }
+.section-header p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+/* Stats Grid */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; background: var(--bg-card); padding: 40px 30px; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--border); max-width: 1200px; margin: 0 auto; }
+.stat-card { text-align: center; }
+.stat-icon { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
+.stat-card h3 { display: inline-block; font-size: 2.8rem; font-weight: 800; color: var(--text-main); }
+.stat-card span { font-size: 2.8rem; font-weight: 800; color: var(--primary); }
+.stat-card p { color: var(--text-muted); font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* Cards Grid */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+.card { background: var(--bg-card); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: 0.4s; border: 1px solid var(--border); display: flex; flex-direction: column; }
+.card:hover { transform: none; border-color: var(--primary); }
+.card-img { height: 220px; background-position: center; background-size: cover; }
+.card-body { padding: 30px; display: flex; flex-direction: column; flex-grow: 1; }
+.card-body h3 { font-size: 1.4rem; margin-bottom: 10px; color: var(--text-main); }
+.card-body p { color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
+.link-btn { color: var(--primary); text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s; margin-top: auto; }
+.link-btn:hover { gap: 12px; color: #ec4899; }
+
+/* Masonry Gallery Grid */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 250px; gap: 20px; max-width: 1200px; margin: 0 auto; }
+.gallery-item { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; transition: 0.4s; cursor: pointer; }
+.gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow); z-index: 2; position: relative; }
+.gallery-item.large { grid-column: span 2; grid-row: span 2; }
+.gallery-item.wide { grid-column: span 2; }
+
+/* Testimonials Slider */
+.testimonials { background: var(--bg-card); }
+.testimonial-card { background: var(--bg-main); padding: 40px; border-radius: 20px; text-align: center; border: 1px solid var(--border); height: 100%; }
+.quote-icon { font-size: 2.5rem; color: rgba(79, 70, 229, 0.2); margin-bottom: 20px; }
+.testimonial-card p { font-size: 1.1rem; font-style: italic; margin-bottom: 20px; color: var(--text-main); }
+.testimonial-card h4 { color: var(--text-main); font-weight: 700; }
+.testimonial-card span { font-size: 0.9rem; color: var(--primary); font-weight: 600; }
+.swiper-pagination-bullet-active { background: var(--primary) !important; }
+
+/* Admissions Form */
+.form-container { display: flex; gap: 50px; background: var(--bg-card); padding: 50px; border-radius: 30px; box-shadow: var(--shadow); max-width: 1100px; margin: 0 auto; border: 1px solid var(--border); }
+.form-info { flex: 1; }
+.form-info h2 { font-size: 2.2rem; margin-bottom: 15px; color: var(--text-main); }
+.form-info p { color: var(--text-muted); margin-bottom: 30px; font-size: 1.05rem; }
+.contact-list { list-style: none; }
+.contact-list li { margin-bottom: 20px; color: var(--text-main); display: flex; align-items: center; gap: 15px; font-weight: 500; }
+.contact-list i { color: var(--primary); font-size: 1.2rem; background: rgba(79, 70, 229, 0.1); padding: 12px; border-radius: 50%; min-width: 45px; text-align: center; }
+.contact-form { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.input-group { display: flex; gap: 20px; }
+
+/* Form Fields Styling */
+input, textarea { 
+    width: 100%; 
+    padding: 16px; 
+    border-radius: 12px; 
+    border: 1px solid var(--border); 
+    background: var(--bg-main); 
+    color: var(--text-main); 
+    font-family: inherit; 
+    font-size: 1rem; 
+    transition: 0.3s; 
+}
+
+/* Hover karne par student corner jaisa blue border highlight */
+input:hover, textarea:hover {
+    border-color: var(--primary);
+}
+
+/* Jab form box me click (focus) karein - Shape nahi badlega, sharp nahi hoga */
+input:focus, textarea:focus,
+input:focus-visible, textarea:focus-visible { 
+    outline: none; 
+    border-color: var(--primary); 
+    box-shadow: none;
+    border-radius: 12px; 
+}
+
+/* =========================================
+   6. Footer & Scroll Top
+========================================= */
+footer { background: #0f172a; color: #cbd5e1; padding: 4rem 5% 2rem; text-align: center; }
+.footer-brand h2 { color: #fff; margin-bottom: 10px; font-size: 2rem; }
+.socials { margin-top: 25px; display: flex; justify-content: center; gap: 15px; }
+.socials a { width: 45px; height: 45px; background: rgba(255,255,255,0.1); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: 0.3s; font-size: 1.2rem; }
+.socials a:hover { background: var(--primary); transform: none;}
+.footer-bottom { margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155; font-size: 0.95rem; }
+
+/* Mobile optimized Scroll Top button */
+.scroll-top { 
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    background: var(--primary); 
+    color: white; 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 50%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-decoration: none; 
+    font-size: 1.2rem; 
+    opacity: 0; 
+    pointer-events: none; 
+    transition: opacity 0.3s, background 0.3s, transform 0.2s; 
+    z-index: 99; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+}
+.scroll-top.visible { 
+    opacity: 1; 
+    pointer-events: auto; 
+}
+.scroll-top:hover { 
+    background: var(--primary-hover); 
+}
+/* Gives a nice pressed feeling when touched on phone */
+.scroll-top:active {
+    transform: scale(0.9);
+}
+
+/* =========================================
+   7. Animations
+========================================= */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s cubic-bezier(0.5, 0, 0, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* =========================================
+   8. Responsive Design (Mobile & Tablet)
+========================================= */
+.menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; visibility: hidden; transition: 0.3s; backdrop-filter: blur(5px); }
+.menu-overlay.active { opacity: 1; visibility: visible; }
+
+@media(max-width: 1024px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-item.large, .gallery-item.wide { grid-column: span 1; grid-row: span 1; }
+    .form-container { flex-direction: column; padding: 40px 30px; }
+}
+
+@media(max-width: 991px) {
+    .hero-modern { grid-template-columns: 1fr; padding-top: 140px; text-align: center; gap: 40px; }
+    .hero-text-side { padding-right: 0; display: flex; flex-direction: column; align-items: center; }
+    .hero-mini-stats { justify-content: center; }
+    .floating-card { left: 20px; bottom: 20px; padding: 15px 20px; }
+    .image-wrapper img { height: 400px; }
+}
+
+@media(max-width: 768px) {
+    .mobile-menu-btn { display: block; }
+    .nav-btn { display: none; }
+    
+    /* Premium Popover Custom Menu (Bina Arrow Ke) */
+    .nav-links { 
+        position: absolute; 
+        top: 130%; /* Navbar ke theek niche */
+        right: 15px; /* Right side se aligned */
+        width: 220px; /* Sirf content jitna chota box */
+        height: auto; 
+        background: var(--bg-card); 
+        flex-direction: column; 
+        padding: 8px 0; 
+        border-radius: 16px; 
+        border: 1px solid var(--border); 
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15); 
+        z-index: 999;
+        gap: 0;
+        
+        /* Hidden state for animation */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px) scale(0.95); 
+        transform-origin: top right; 
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    /* Jab menu open hoga */
+    .nav-links.active { 
+        opacity: 1; 
+        visibility: visible;
+        transform: translateY(0) scale(1); 
+    }
+    
+    /* Menu Items Styling */
+    .nav-links li { 
+        width: 100%; 
+    }
+    
+    .nav-links a { 
+        display: block; 
+        width: 100%; 
+        padding: 12px 20px; /* Padding fix rakhi hai */
+        font-size: 1rem; 
+        font-weight: 600; 
+        color: var(--text-main);
+        border-bottom: 1px solid var(--border);
+        transition: background 0.2s, color 0.2s; /* Sirf color aur background change hoga */
+    }
+    
+    /* Aakhri item ke niche line hatane ke liye */
+    .nav-links li:last-child a {
+        border-bottom: none; 
+    }
+    
+    /* Touch karne par premium feel (Bina text aage khiske) */
+    .nav-links a:hover {
+        color: var(--primary);
+        background: rgba(79, 70, 229, 0.05);
+    }
+    
+    .input-group { flex-direction: column; gap: 20px; }
+    .stats-grid { padding: 30px 20px; }
+    .section-header h2 { font-size: 2rem; }
+}
+
+/* =========================================
+   9. Student Corner Section
+========================================= */
+.corner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.corner-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 35px 30px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.corner-card:hover {
+    border-color: var(--primary);
+    transform: none; /* No scale up */
+}
+
+.corner-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(79, 70, 229, 0.1);
+    color: var(--primary);
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.corner-card:hover .corner-icon {
+    background: var(--primary);
+    color: white;
+}
+
+.corner-info h3 {
+    color: var(--text-main);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.corner-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    width: 100%;
+    margin-top: auto;
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+}
+
+/* =========================================
+   10. Custom Dropdown Styles (Premium Look)
+========================================= */
+.custom-select-wrapper {
+    position: relative;
+    width: 100%;
+    user-select: none;
+}
+
+.custom-select-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-main);
+    color: var(--text-muted); /* Placeholder grey color */
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.custom-select-trigger.filled {
+    color: var(--text-main); /* Real selection hone par dark text */
+}
+
+.custom-select-trigger:hover {
+    border-color: var(--primary);
+}
+
+.custom-select-trigger.active {
+    border-color: var(--primary);
+    border-radius: 12px 12px 0 0; /* Open hone par niche se flat ho jayega */
+}
+
+.custom-select-icon {
+    transition: transform 0.3s ease;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.custom-select-trigger.active .custom-select-icon {
+    transform: rotate(180deg); /* Arrow upar ghum jayega */
+}
+
+.custom-select-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-main);
+    border: 1px solid var(--primary);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.custom-select-wrapper.open .custom-select-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.custom-option {
+    padding: 14px 16px;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: 0.2s;
+    border-bottom: 1px solid var(--border);
+}
+
+.custom-option:last-child {
+    border-bottom: none;
+}
+
+.custom-option:hover {
+    background: rgba(79, 70, 229, 0.08);
+    color: var(--primary);
+}
