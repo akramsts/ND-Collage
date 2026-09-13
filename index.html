@@ -5,29 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ND College, Purnea - A premier private institution affiliated with Purnea University offering graduation courses.">
     <title>ND College | Affiliated to Purnea University</title>
-    
-    <!-- Fix for Dark Mode Flash Bug -->
+
     <script>
         if(localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
         }
     </script>
 
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Swiper CSS -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <!-- Custom CSS -->
+    
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 
-    <!-- Floating Capsule Navigation -->
     <header class="capsule-nav">
         <a href="#home" class="logo" aria-label="ND College Home">
-            <i class="fa-solid fa-graduation-cap"></i> ND College
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg> ND College
         </a>
         <nav>
             <ul class="nav-links">
@@ -39,26 +37,28 @@
         </nav>
         <div class="nav-actions">
             <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
-                <i class="fa-solid fa-moon"></i> 
+                <svg id="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <svg id="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
             </button>
             <a href="#admissions" class="btn btn-pill nav-btn">Apply Now</a>
             <button class="mobile-menu-btn" aria-label="Open Menu">
-                <i class="fa-solid fa-bars"></i>
+                <svg id="icon-bars" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
         </div>
     </header>
 
-    <!-- Mobile Menu Overlay -->
     <div class="menu-overlay"></div>
 
-    <!-- Split-Screen Hero -->
     <section id="home" class="hero-modern">
         <div class="hero-text-side reveal">
             <div class="badge-modern">Established in 2003</div>
             <h1>Empowering<br>Your <span class="text-gradient">Future.</span></h1>
             <p>Welcome to ND College, a premier <strong>private institution affiliated with Purnea University</strong>. Experience an education built for the modern world, shaping the leaders of tomorrow.</p>
             <div class="hero-buttons-left">
-                <a href="#programs" class="btn btn-gradient">Explore Courses <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#programs" class="btn btn-gradient">Explore Courses 
+                    <i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></i>
+                </a>
             </div>
             
             <div class="hero-mini-stats">
@@ -72,7 +72,9 @@
                 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000&auto=format&fit=crop" alt="ND College Students Collaborating">
             </div>
             <div class="floating-card">
-                <i class="fa-solid fa-award"></i>
+                <i>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                </i>
                 <div>
                     <h4>Affiliated With</h4>
                     <span>Purnea University</span>
@@ -81,33 +83,31 @@
         </div>
     </section>
 
-    <!-- Animated Stats -->
     <section class="stats-section">
         <div class="stats-grid reveal">
             <div class="stat-card">
-                <i class="fa-solid fa-users stat-icon"></i>
+                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                 <h3 class="counter" data-target="2000">0</h3><span>+</span>
                 <p>Active Students</p>
             </div>
             <div class="stat-card">
-                <i class="fa-solid fa-chart-line stat-icon"></i>
+                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
                 <h3 class="counter" data-target="95">0</h3><span>%</span>
                 <p>Passing Rate</p>
             </div>
             <div class="stat-card">
-                <i class="fa-solid fa-chalkboard-user stat-icon"></i>
+                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="21" x2="22" y2="21"></line><path d="M12 17v4"></path><path d="M8 17v4"></path><circle cx="12" cy="9" r="2"></circle><path d="M15 15c0-1.66-1.34-3-3-3s-3 1.34-3 3"></path></svg>
                 <h3 class="counter" data-target="40">0</h3><span>+</span>
                 <p>Expert Faculty</p>
             </div>
             <div class="stat-card">
-                <i class="fa-solid fa-book-open stat-icon"></i>
+                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
                 <h3 class="counter" data-target="15">0</h3><span>+</span>
                 <p>Subjects Offered</p>
             </div>
         </div>
     </section>
 
-    <!-- Programs Section -->
     <section id="programs" class="programs">
         <div class="section-header reveal">
             <h2>Our Graduation Programs</h2>
@@ -119,7 +119,9 @@
                 <div class="card-body">
                     <h3>Bachelor of Science (B.Sc.)</h3>
                     <p>Dive deep into Physics, Chemistry, Mathematics, and Biology with our advanced laboratories.</p>
-                    <a href="#admissions" class="link-btn auto-select-btn" data-course="bsc">Apply for B.Sc. <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#admissions" class="link-btn auto-select-btn" data-course="bsc">Apply for B.Sc. 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
             </div>
             <div class="card reveal">
@@ -127,7 +129,9 @@
                 <div class="card-body">
                     <h3>Bachelor of Arts (B.A.)</h3>
                     <p>Explore humanities, literature, and social sciences. Perfect preparation for civil services.</p>
-                    <a href="#admissions" class="link-btn auto-select-btn" data-course="ba">Apply for B.A. <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#admissions" class="link-btn auto-select-btn" data-course="ba">Apply for B.A. 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
             </div>
             <div class="card reveal">
@@ -135,13 +139,14 @@
                 <div class="card-body">
                     <h3>Bachelor of Commerce (B.Com)</h3>
                     <p>Master the fundamentals of accounting, economics, and modern business management strategies.</p>
-                    <a href="#admissions" class="link-btn auto-select-btn" data-course="bcom">Apply for B.Com <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#admissions" class="link-btn auto-select-btn" data-course="bcom">Apply for B.Com 
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Campus Gallery -->
     <section id="gallery" class="gallery-section reveal">
         <div class="section-header">
             <h2>Life at ND College</h2>
@@ -154,7 +159,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Slider -->
     <section class="testimonials reveal">
         <div class="section-header">
             <h2>Student Success Stories</h2>
@@ -163,7 +167,7 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="testimonial-card">
-                        <i class="fa-solid fa-quote-left quote-icon"></i>
+                        <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
                         <p>"ND College gave me the perfect environment to complete my B.Sc. The teachers here are incredibly supportive."</p>
                         <h4>Rahul Kumar</h4>
                         <span>B.Sc Graduate</span>
@@ -171,7 +175,7 @@
                 </div>
                 <div class="swiper-slide">
                     <div class="testimonial-card">
-                        <i class="fa-solid fa-quote-left quote-icon"></i>
+                        <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
                         <p>"My B.A. years at ND College were truly transformative. The quiet campus at Rambagh is the best place for focused studies."</p>
                         <h4>Priya Singh</h4>
                         <span>B.A. Graduate</span>
@@ -179,7 +183,7 @@
                 </div>
                 <div class="swiper-slide">
                     <div class="testimonial-card">
-                        <i class="fa-solid fa-quote-left quote-icon"></i>
+                        <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
                         <p>"The commerce department helped me build a strong foundation. Today, I'm pursuing higher studies thanks to ND College."</p>
                         <h4>Amit Patel</h4>
                         <span>B.Com Graduate</span>
@@ -190,17 +194,16 @@
         </div>
     </section>
 
-    <!-- Student Corner Section -->
     <section id="student-corner" class="student-corner reveal">
         <div class="section-header">
             <h2>Student Corner</h2>
             <p>Download important exam forms, syllabus, and college scheme details directly from here.</p>
         </div>
         <div class="corner-grid">
-            <!-- Item 1: Exam Forms -->
+            
             <div class="corner-card">
                 <div class="corner-icon">
-                    <i class="fa-solid fa-file-signature"></i>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></svg>
                 </div>
                 <div class="corner-info">
                     <h3>Exam Form Fillup</h3>
@@ -209,10 +212,9 @@
                 <a href="#" class="btn btn-outline" download>Download PDF</a>
             </div>
 
-            <!-- Item 2: Syllabus -->
             <div class="corner-card">
                 <div class="corner-icon">
-                    <i class="fa-solid fa-book-open"></i>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
                 </div>
                 <div class="corner-info">
                     <h3>Course Syllabus</h3>
@@ -221,10 +223,9 @@
                 <a href="#" class="btn btn-outline" download>Download PDF</a>
             </div>
 
-            <!-- Item 3: Schemes -->
             <div class="corner-card">
                 <div class="corner-icon">
-                    <i class="fa-solid fa-bullhorn"></i>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 19 2 12 11 5 11 19"></polygon><path d="M22 12A10 10 0 0 1 12 22"></path><path d="M22 12A10 10 0 0 0 12 2"></path></svg>
                 </div>
                 <div class="corner-info">
                     <h3>Scholarship & Schemes</h3>
@@ -233,10 +234,9 @@
                 <a href="#" class="btn btn-outline" download>Download PDF</a>
             </div>
 
-            <!-- Item 4: Cover Page -->
             <div class="corner-card">
                 <div class="corner-icon">
-                    <i class="fa-solid fa-file-invoice"></i>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                 </div>
                 <div class="corner-info">
                     <h3>Cover Page</h3>
@@ -247,16 +247,15 @@
         </div>
     </section>
 
-    <!-- Admissions Form -->
     <section id="admissions" class="admissions reveal">
         <div class="form-container">
             <div class="form-info">
                 <h2>Begin Your Journey</h2>
                 <p>Fill out the inquiry form and our admission counselors will contact you to guide you through the process.</p>
                 <ul class="contact-list">
-                    <li><i class="fa-solid fa-location-dot"></i> Rambagh, Purnea, Bihar, India</li>
-                    <li><i class="fa-solid fa-phone"></i> +91 98765 43210</li>
-                    <li><i class="fa-solid fa-envelope"></i> admission@ndcollege.in</li>
+                    <li><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></i> Rambagh, Purnea, Bihar, India</li>
+                    <li><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></i> +91 98765 43210</li>
+                    <li><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></i> admission@ndcollege.in</li>
                 </ul>
             </div>
             <form class="contact-form" id="applyForm">
@@ -264,19 +263,18 @@
                     <input type="text" placeholder="Student's Full Name" required aria-label="Full Name">
                     <input type="tel" placeholder="Mobile Number" required aria-label="Mobile Number" pattern="[0-9]{10}">
                 </div>
-                
-                <!-- Custom Select Dropdown -->
+
                 <div class="custom-select-wrapper" id="customCourseSelect">
                     <div class="custom-select-trigger">
                         <span class="custom-select-text">Select Course of Interest</span>
-                        <i class="fa-solid fa-chevron-down custom-select-icon"></i>
+                        <svg class="custom-select-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
                     </div>
                     <div class="custom-select-options">
                         <div class="custom-option" data-value="bsc">Bachelor of Science (B.Sc.)</div>
                         <div class="custom-option" data-value="ba">Bachelor of Arts (B.A.)</div>
                         <div class="custom-option" data-value="bcom">Bachelor of Commerce (B.Com)</div>
                     </div>
-                    <!-- Hidden input to store selected value for the form -->
+                    
                     <input type="hidden" id="courseSelect" required>
                 </div>
 
@@ -286,7 +284,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
@@ -295,9 +292,9 @@
                 <p>Empowering minds in Purnea since 2003.</p>
             </div>
             <div class="socials">
-                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -305,10 +302,10 @@
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <a href="#home" class="scroll-top" aria-label="Scroll to Top"><i class="fa-solid fa-arrow-up"></i></a>
+    <a href="#home" class="scroll-top" aria-label="Scroll to Top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </a>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>

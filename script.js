@@ -1,61 +1,51 @@
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // ==========================================
-    // 1. Dark Mode Toggle (with LocalStorage)
-    // ==========================================
-    const themeBtn = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-    const icon = themeBtn.querySelector('i');
 
-    if(localStorage.getItem('theme') === 'dark') {
-        html.setAttribute('data-theme', 'dark');
-        icon.classList.replace('fa-moon', 'fa-sun');
+    const html = document.documentElement;
+    const themeBtn = document.getElementById('theme-toggle');
+    const iconMoon = document.getElementById('icon-moon');
+    const iconSun = document.getElementById('icon-sun');
+
+    const setTheme = (theme) => {
+        html.setAttribute('data-theme', theme);
+        if (iconMoon && iconSun) {
+            iconMoon.style.display = theme === 'dark' ? 'none' : 'block';
+            iconSun.style.display = theme === 'dark' ? 'block' : 'none';
+        }
+        localStorage.setItem('theme', theme);
+    };
+
+    if (localStorage.getItem('theme') === 'dark') {
+        setTheme('dark');
     }
 
-    themeBtn.addEventListener('click', () => {
-        if (html.getAttribute('data-theme') === 'light') {
-            html.setAttribute('data-theme', 'dark');
-            icon.classList.replace('fa-moon', 'fa-sun');
-            localStorage.setItem('theme', 'dark'); 
-        } else {
-            html.setAttribute('data-theme', 'light');
-            icon.classList.replace('fa-sun', 'fa-moon');
-            localStorage.setItem('theme', 'light'); 
-        }
-    });
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            setTheme(html.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+        });
+    }
 
-    // ==========================================
-    // 2. Smart Capsule Navbar & Mobile Menu
-    // ==========================================
     const navbar = document.querySelector('.capsule-nav');
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navLinks = document.querySelector('.nav-links');
     const overlay = document.querySelector('.menu-overlay');
     const scrollTopBtn = document.querySelector('.scroll-top');
+    const iconBars = document.getElementById('icon-bars');
+    const iconClose = document.getElementById('icon-close');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        if (window.scrollY > 500) {
-            scrollTopBtn.classList.add('visible');
-        } else {
-            scrollTopBtn.classList.remove('visible');
-        }
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+        scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
     });
 
     const toggleMenu = () => {
-        navLinks.classList.toggle('active');
+        const isOpen = navLinks.classList.toggle('active');
         if (overlay) overlay.classList.toggle('active');
-        
-        const i = menuBtn.querySelector('i');
-        i.classList.toggle('fa-bars');
-        i.classList.toggle('fa-xmark');
-        
-        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+
+        if (iconBars && iconClose) {
+            iconBars.style.display = isOpen ? 'none' : 'block';
+            iconClose.style.display = isOpen ? 'block' : 'none';
+        }
+        document.body.style.overflow = isOpen ? 'hidden' : '';
     };
 
     if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
@@ -63,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            if(navLinks.classList.contains('active')) toggleMenu();
+            if (navLinks.classList.contains('active')) toggleMenu();
         });
     });
 
@@ -73,9 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // ==========================================
-    // 3. Scroll Reveal Animations & Number Counters
-    // ==========================================
     const reveals = document.querySelectorAll('.reveal');
     const counters = document.querySelectorAll('.counter');
     let countersStarted = false;
@@ -83,10 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const startCounters = () => {
         counters.forEach(counter => {
             const target = +counter.getAttribute('data-target');
-            const duration = 2000; 
-            const increment = target / (duration / 16); 
-
+            const duration = 2000;
+            const increment = target / (duration / 16);
             let current = 0;
+
             const updateCounter = () => {
                 current += increment;
                 if (current < target) {
@@ -106,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const revealTop = reveal.getBoundingClientRect().top;
             if (revealTop < windowHeight - 50) {
                 reveal.classList.add('active');
-                
                 if (reveal.classList.contains('stats-grid') && !countersStarted) {
                     startCounters();
                     countersStarted = true;
@@ -116,23 +102,20 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     window.addEventListener('scroll', revealOnScroll);
-    setTimeout(revealOnScroll, 100); 
+    setTimeout(revealOnScroll, 100);
 
-    // ==========================================
-    // 4. Initialize Swiper.js (Testimonials Carousel)
-    // ==========================================
-    if(typeof Swiper !== 'undefined') {
-        const swiper = new Swiper(".mySwiper", {
+    if (typeof Swiper !== 'undefined') {
+        new Swiper(".mySwiper", {
             slidesPerView: 1,
             spaceBetween: 30,
             loop: true,
             autoplay: {
                 delay: 3500,
-                disableOnInteraction: false,
+                disableOnInteraction: false
             },
             pagination: {
                 el: ".swiper-pagination",
-                clickable: true,
+                clickable: true
             },
             breakpoints: {
                 768: { slidesPerView: 2 },
@@ -141,126 +124,112 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // ==========================================
-    // 5. Admissions Form Submission Simulation
-    // ==========================================
+    const customSelectWrapper = document.getElementById('customCourseSelect');
+    const courseHiddenInput = document.getElementById('courseSelect');
+    const courseLabels = {
+        bsc: 'Bachelor of Science (B.Sc.)',
+        ba: 'Bachelor of Arts (B.A.)',
+        bcom: 'Bachelor of Commerce (B.Com)'
+    };
+    let customSelectTrigger, customSelectText;
+
+    const resetCustomSelect = () => {
+        if (customSelectText) customSelectText.innerText = "Select Course of Interest";
+        if (courseHiddenInput) courseHiddenInput.value = "";
+        if (customSelectTrigger) customSelectTrigger.classList.remove('filled');
+    };
+
+    if (customSelectWrapper) {
+        customSelectTrigger = customSelectWrapper.querySelector('.custom-select-trigger');
+        customSelectText = customSelectWrapper.querySelector('.custom-select-text');
+        const options = customSelectWrapper.querySelectorAll('.custom-option');
+
+        customSelectTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            customSelectWrapper.classList.toggle('open');
+            customSelectTrigger.classList.toggle('active');
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', function () {
+                customSelectText.innerText = this.innerText;
+                courseHiddenInput.value = this.getAttribute('data-value');
+                customSelectTrigger.classList.add('filled');
+                customSelectWrapper.classList.remove('open');
+                customSelectTrigger.classList.remove('active');
+                customSelectTrigger.style.borderColor = "";
+                customSelectText.style.color = "";
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!customSelectWrapper.contains(e.target)) {
+                customSelectWrapper.classList.remove('open');
+                customSelectTrigger.classList.remove('active');
+            }
+        });
+
+        document.querySelectorAll('.auto-select-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const selectedCourse = button.getAttribute('data-course');
+                if (!courseHiddenInput || !customSelectText || !courseLabels[selectedCourse]) return;
+
+                courseHiddenInput.value = selectedCourse;
+                customSelectText.innerText = courseLabels[selectedCourse];
+                customSelectTrigger.classList.add('filled');
+                customSelectTrigger.style.borderColor = "var(--primary)";
+                setTimeout(() => { customSelectTrigger.style.borderColor = ""; }, 2000);
+            });
+        });
+    }
+
     const form = document.getElementById('applyForm');
-    if(form) {
+    if (form) {
         form.addEventListener('submit', (e) => {
-            e.preventDefault(); 
+            e.preventDefault();
+
+            // Hidden <input required> is NOT enforced by browsers, so validate manually here.
+            if (!courseHiddenInput || !courseHiddenInput.value) {
+                if (customSelectTrigger) {
+                    customSelectTrigger.style.borderColor = "#ef4444";
+                    setTimeout(() => { customSelectTrigger.style.borderColor = ""; }, 2000);
+                }
+                if (customSelectText) {
+                    customSelectText.style.color = "#ef4444";
+                    setTimeout(() => { customSelectText.style.color = ""; }, 2000);
+                }
+                return;
+            }
+
             const btn = e.target.querySelector('button');
             const originalText = btn.innerText;
-            
+
             btn.innerText = "Inquiry Sent Successfully!";
-            btn.style.background = "linear-gradient(135deg, #10b981, #059669)"; 
+            btn.style.background = "linear-gradient(135deg, #10b981, #059669)";
             btn.style.boxShadow = "0 10px 20px rgba(16, 185, 129, 0.3)";
-            e.target.reset(); 
-            
-            // Textarea height reset in case it auto-expanded
+            e.target.reset();
+
             const textarea = document.getElementById('inquiryText');
             if (textarea) textarea.style.height = 'auto';
-            
-            // Custom Select reset
-            const customSelectTrigger = document.querySelector('.custom-select-trigger');
-            const customSelectText = document.querySelector('.custom-select-text');
-            const hiddenInput = document.getElementById('courseSelect');
-            if (customSelectTrigger && customSelectText && hiddenInput) {
-                customSelectText.innerText = "Select Course of Interest";
-                hiddenInput.value = "";
-                customSelectTrigger.classList.remove('filled');
-            }
-            
+
+            resetCustomSelect();
+
             setTimeout(() => {
                 btn.innerText = originalText;
-                btn.style.background = ""; 
+                btn.style.background = "";
                 btn.style.boxShadow = "";
             }, 4000);
         });
     }
 
-    // ==========================================
-    // 6. Dynamic Footer Year
-    // ==========================================
     const yearEl = document.getElementById('year');
-    if(yearEl) yearEl.innerText = new Date().getFullYear();
+    if (yearEl) yearEl.innerText = new Date().getFullYear();
 
-    // ==========================================
-    // 7. Auto-Select Course & Custom Dropdown Logic
-    // ==========================================
-    const courseButtons = document.querySelectorAll('.auto-select-btn');
-    const customSelectWrapper = document.getElementById('customCourseSelect');
-    const hiddenInput = document.getElementById('courseSelect');
-    
-    if (customSelectWrapper) {
-        const trigger = customSelectWrapper.querySelector('.custom-select-trigger');
-        const text = customSelectWrapper.querySelector('.custom-select-text');
-        const options = customSelectWrapper.querySelectorAll('.custom-option');
-
-        // Dropdown open/close logic
-        trigger.addEventListener('click', function(e) {
-            e.stopPropagation();
-            customSelectWrapper.classList.toggle('open');
-            trigger.classList.toggle('active');
-        });
-
-        // Option click logic
-        options.forEach(option => {
-            option.addEventListener('click', function() {
-                const value = this.getAttribute('data-value');
-                const label = this.innerText;
-
-                // Update text and hidden input
-                text.innerText = label;
-                hiddenInput.value = value;
-                trigger.classList.add('filled');
-
-                // Close dropdown
-                customSelectWrapper.classList.remove('open');
-                trigger.classList.remove('active');
-                trigger.style.borderColor = "";
-            });
-        });
-
-        // Click outside to close dropdown
-        document.addEventListener('click', function(e) {
-            if (!customSelectWrapper.contains(e.target)) {
-                customSelectWrapper.classList.remove('open');
-                trigger.classList.remove('active');
-            }
-        });
-
-        // Update Auto-Select Logic from Course Cards
-        courseButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const selectedCourse = button.getAttribute('data-course');
-                
-                if (hiddenInput && text) {
-                    hiddenInput.value = selectedCourse;
-                    trigger.classList.add('filled');
-                    
-                    // Set matched text
-                    if(selectedCourse === 'bsc') text.innerText = 'Bachelor of Science (B.Sc.)';
-                    if(selectedCourse === 'ba') text.innerText = 'Bachelor of Arts (B.A.)';
-                    if(selectedCourse === 'bcom') text.innerText = 'Bachelor of Commerce (B.Com)';
-                    
-                    // Highlight effect
-                    trigger.style.borderColor = "var(--primary)";
-                    setTimeout(() => { trigger.style.borderColor = ""; }, 2000);
-                }
-            });
-        });
-    }
-
-    // ==========================================
-    // 8. Auto-Resize Textarea
-    // ==========================================
     const textarea = document.getElementById('inquiryText');
     if (textarea) {
-        textarea.addEventListener('input', function() {
-            // Reset height first to calculate correct scrollHeight if text is deleted
+        textarea.addEventListener('input', function () {
             this.style.height = 'auto';
-            // Set the exact height based on the typed content
-            this.style.height = (this.scrollHeight) + 'px';
+            this.style.height = this.scrollHeight + 'px';
         });
     }
 });
