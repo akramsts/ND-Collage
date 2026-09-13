@@ -5,14 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Cover Page | ND College</title>
     
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- UI Font -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+    <!-- CSS File -->
     <link rel="stylesheet" href="cover-page.css">
 </head>
 <body>
 
     <div class="top-bar no-print">
-        <button type="button" onclick="history.back();" class="back-btn">
+        <button type="button" onclick="window.location.href='index.html'" class="back-btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
             Back to Website
         </button>
@@ -22,54 +25,67 @@
 
     <div class="main-container">
 
+        <!-- STEP 1: Form Section -->
         <div id="step-1" class="step-section active no-print">
             <div class="form-card">
-                <h3>Student Details</h3>
-                <p>Please fill all details correctly before generating the cover page.</p>
+                <h3>Details</h3>
+                <p>Fill in the details carefully for your premium cover page.</p>
                 
                 <div class="input-group">
-                    <label>Assignment / Practical Topic</label>
-                    <input type="text" id="in-topic" placeholder="e.g., Physics Practical Record">
+                    <label>Topic</label>
+                    <input type="text" id="in-topic" placeholder="e.g., Assignment / Project">
+                </div>
+
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Session</label>
+                        <input type="text" id="in-session" placeholder="e.g., 2024-2028">
+                    </div>
+                    <div class="input-group">
+                        <label>Semester</label>
+                        <input type="text" id="in-sem" placeholder="e.g., Semester - I">
+                    </div>
                 </div>
 
                 <div class="input-group">
-                    <label>Submitted By (Student Name)</label>
+                    <label>Student Name</label>
                     <input type="text" id="in-name" placeholder="Your Full Name">
                 </div>
 
                 <div class="input-row">
                     <div class="input-group">
-                        <label>Course / Class</label>
-                        <input type="text" id="in-course" placeholder="e.g., B.Sc Part 1">
+                        <label>Roll Number</label>
+                        <input type="text" id="in-roll" placeholder="University Roll No">
                     </div>
                     <div class="input-group">
-                        <label>Subject</label>
-                        <input type="text" id="in-subject" placeholder="e.g., Zoology Honors">
+                        <label>Registration Number</label>
+                        <input type="text" id="in-reg" placeholder="e.g., ND2400123">
                     </div>
                 </div>
 
                 <div class="input-row">
                     <div class="input-group">
-                        <label>Roll Number</label>
-                        <input type="text" id="in-roll" placeholder="College / Exam Roll No">
+                        <label>Subject</label>
+                        <input type="text" id="in-subject" placeholder="e.g., Zoology">
                     </div>
                     <div class="input-group">
-                        <label>Registration Number</label>
-                        <input type="text" id="in-reg" placeholder="University Reg No">
+                        <label>Paper</label>
+                        <input type="text" id="in-paper" placeholder="e.g., MJC-1">
                     </div>
                 </div>
 
                 <div class="input-group">
-                    <label>Submitted To (Teacher's Name)</label>
-                    <input type="text" id="in-teacher" placeholder="Professor's Name">
+                    <label>Date of Submission</label>
+                    <input type="date" id="in-date">
                 </div>
                 
-                <button onclick="goToStep2()" class="btn-primary">Next: Preview Page
+                <button onclick="goToStep2()" class="btn-primary">Generate Cover Page
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                 </button>
             </div>
         </div>
 
+        <!-- STEP 2: Print Preview Section -->
         <div id="step-2" class="step-section">
 
             <div class="action-buttons no-print">
@@ -83,61 +99,84 @@
                 </button>
             </div>
 
+            <!-- A4 Size Premium Portrait Sheet -->
             <div class="a4-sheet" id="print-area">
                 <div class="sheet-border">
+
+                    <span class="corner corner-tl"></span>
+                    <span class="corner corner-tr"></span>
+                    <span class="corner corner-bl"></span>
+                    <span class="corner corner-br"></span>
+
+                    <img src="logo.png" alt="" class="watermark" aria-hidden="true">
+                    
+                    <!-- 1. Header -->
                     <div class="college-header">
                         <div class="logo-placeholder">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                            <img src="logo.png" alt="ND College Logo" class="cover-logo-img">
                         </div>
-                        <h1>ND COLLEGE, PURNEA</h1>
-                        <p>A Premier Institution Affiliated to Purnea University, Purnea</p>
+                        <h1>ND College, Purnea</h1>
+                        <div class="header-divider"><span></span><i></i><span></span></div>
+                        <p>Affiliated to Purnea University, Purnea</p>
                     </div>
 
-                    <div class="session-box">
-                        <h2>ASSIGNMENT / PRACTICAL RECORD</h2>
+                    <!-- 2 & 3. Topic & Session -->
+                    <div class="title-section">
+                        <span class="eyebrow">Presenting the Topic</span>
+                        <h2 id="out-topic">Topic Name Here</h2>
+                        <h3 id="out-session">Session: 2024-2028</h3>
                     </div>
 
-                    <div class="topic-box">
-                        <h3 id="out-topic">Topic Name Here</h3>
+                    <!-- 4 to 9. Student Details & Course Details (Table Layout) -->
+                    <div class="details-section">
+                        <table class="premium-table">
+                            <tr>
+                                <td class="label">Name</td>
+                                <td class="colon">:</td>
+                                <td class="value" id="out-name">Student Name</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Semester</td>
+                                <td class="colon">:</td>
+                                <td class="value" id="out-sem">Semester</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Roll Number</td>
+                                <td class="colon">:</td>
+                                <td class="value" id="out-roll">Roll Number</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Registration No</td>
+                                <td class="colon">:</td>
+                                <td class="value" id="out-reg">Registration No</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Subject</td>
+                                <td class="colon">:</td>
+                                <td class="value" id="out-subject">Subject Name</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Paper</td>
+                                <td class="colon">:</td>
+                                <td class="value" id="out-paper">Paper Name</td>
+                            </tr>
+                        </table>
                     </div>
 
-                    <div class="details-container">
-                        <div class="details-box submitted-to">
-                            <h4>SUBMITTED TO</h4>
-                            <p id="out-teacher">Teacher's Name</p>
+                    <!-- 10 & 11. Footer (Date & Signature) -->
+                    <div class="footer-section">
+                        <div class="footer-left">
+                            <div class="date-box">
+                                <span class="label">Date:</span>
+                                <span class="value" id="out-date">DD / MM / YYYY</span>
+                            </div>
                         </div>
                         
-                        <div class="details-box submitted-by">
-                            <h4>SUBMITTED BY</h4>
-                            <table class="student-table">
-                                <tr>
-                                    <td><strong>Name:</strong></td>
-                                    <td id="out-name">Student Name</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Class:</strong></td>
-                                    <td id="out-course">Class/Course</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Subject:</strong></td>
-                                    <td id="out-subject">Subject Name</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Roll No:</strong></td>
-                                    <td id="out-roll">Roll Number</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Reg No:</strong></td>
-                                    <td id="out-reg">Registration No</td>
-                                </tr>
-                            </table>
+                        <div class="footer-right">
+                            <div class="signature-line">Signature of Teacher</div>
                         </div>
                     </div>
 
-                    <div class="signature-section">
-                        <div class="sign-box">Signature of Teacher</div>
-                        <div class="sign-box">Signature of Student</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -146,19 +185,35 @@
 
     <script>
         const fieldMap = [
-            ['in-topic', 'out-topic', 'Topic Name Here'],
+            ['in-topic', 'out-topic', 'Assignment / Project'],
+            ['in-session', 'out-session', 'Session: 2024-2028', true], // true means add "Session: " prefix
             ['in-name', 'out-name', 'Student Name'],
-            ['in-course', 'out-course', 'Class/Course'],
-            ['in-subject', 'out-subject', 'Subject Name'],
+            ['in-sem', 'out-sem', 'Semester - I'],
             ['in-roll', 'out-roll', 'Roll Number'],
             ['in-reg', 'out-reg', 'Registration No'],
-            ['in-teacher', 'out-teacher', "Teacher's Name"]
+            ['in-subject', 'out-subject', 'Subject Name'],
+            ['in-paper', 'out-paper', 'Paper Code/Name']
         ];
 
+        function formatDate(dateStr) {
+            if(!dateStr) return 'DD / MM / YYYY';
+            const parts = dateStr.split('-');
+            return `${parts[2]} / ${parts[1]} / ${parts[0]}`;
+        }
+
         function goToStep2() {
-            fieldMap.forEach(([inputId, outputId, fallback]) => {
-                document.getElementById(outputId).innerText = document.getElementById(inputId).value || fallback;
+            // Text Inputs
+            fieldMap.forEach(([inputId, outputId, fallback, addPrefix]) => {
+                let val = document.getElementById(inputId).value.trim();
+                if (val && addPrefix) val = "Session: " + val;
+                document.getElementById(outputId).innerText = val || fallback;
             });
+            
+            // Date Input
+            const dateVal = document.getElementById('in-date').value;
+            document.getElementById('out-date').innerText = formatDate(dateVal);
+
+            // Switch Screen
             document.getElementById('step-1').classList.remove('active');
             document.getElementById('step-2').classList.add('active');
             window.scrollTo(0, 0);

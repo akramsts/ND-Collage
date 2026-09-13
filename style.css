@@ -516,6 +516,13 @@ svg { display: block; flex-shrink: 0; }
     margin-right: 6px;
 }
 
+.logo-img {
+    height: 34px;
+    width: auto;
+    margin-right: 6px;
+    object-fit: contain;
+}
+
 .socials a svg {
     transition: transform 0.3s ease;
 }
