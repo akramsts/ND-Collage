@@ -284,12 +284,17 @@ input:focus, input:focus-visible {
     body { background: white; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .no-print { display: none !important; }
     .main-container { padding: 0; }
-    .a4-sheet { box-shadow: none; width: 210mm; height: 297mm; padding: 10mm; margin: 0; }
+    .a4-sheet { box-shadow: none; width: 210mm; height: 297mm; padding: 10mm; margin: 0; transform: none !important; }
 }
 
 /* Mobile Responsive For Web Preview */
-@media(max-width: 768px) {
+@media screen and (max-width: 768px) {
     .input-row { flex-direction: column; gap: 0; }
     .action-buttons { flex-direction: column; }
-    .a4-sheet { transform: scale(0.6); transform-origin: top center; margin-bottom: -400px; }
+    
+    .a4-sheet { 
+        transform: scale(0.42); 
+        transform-origin: top center; 
+        margin-bottom: -650px; 
+    }
 }
