@@ -4,31 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ND College, Purnea - A premier private institution affiliated with Purnea University offering graduation courses.">
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="canonical" href="https://www.ndcollege.in/">
     <title>ND College | Affiliated to Purnea University</title>
 
     <link rel="icon" type="image/png" href="logo.png">
 
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ND College | Affiliated to Purnea University">
+    <meta property="og:description" content="A premier private institution affiliated with Purnea University offering graduation courses since 1986.">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:url" content="https://www.ndcollege.in/">
+
     <script>
-        if(localStorage.getItem('theme') === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
+        (function () {
+            try {
+                const savedTheme = localStorage.getItem('theme');
+                const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                
+                if (savedTheme === 'dark' || savedTheme === 'light') {
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                } else if (systemPrefersDark) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) { }
+        })();
     </script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 <body>
 
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <svg style="display:none" aria-hidden="true">
+        <symbol id="sprite-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></symbol>
+        <symbol id="sprite-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></symbol>
+        <symbol id="sprite-bars" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></symbol>
+        <symbol id="sprite-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></symbol>
+        <symbol id="sprite-arrow-right" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></symbol>
+        <symbol id="sprite-arrow-up" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></symbol>
+        <symbol id="sprite-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></symbol>
+        <symbol id="sprite-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></symbol>
+        <symbol id="sprite-trending-up" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></symbol>
+        <symbol id="sprite-id-card" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="21" x2="22" y2="21"></line><path d="M12 17v4"></path><path d="M8 17v4"></path><circle cx="12" cy="9" r="2"></circle><path d="M15 15c0-1.66-1.34-3-3-3s-3 1.34-3 3"></path></symbol>
+        <symbol id="sprite-book-open" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></symbol>
+        <symbol id="sprite-file-check" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></symbol>
+        <symbol id="sprite-fast-forward" viewBox="0 0 24 24"><polygon points="11 19 2 12 11 5 11 19"></polygon><path d="M22 12A10 10 0 0 1 12 22"></path><path d="M22 12A10 10 0 0 0 12 2"></path></symbol>
+        <symbol id="sprite-file-text" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></symbol>
+        <symbol id="sprite-map-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></symbol>
+        <symbol id="sprite-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></symbol>
+        <symbol id="sprite-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></symbol>
+        <symbol id="sprite-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></symbol>
+        <symbol id="sprite-facebook" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></symbol>
+        <symbol id="sprite-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></symbol>
+        <symbol id="sprite-twitter" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></symbol>
+        <symbol id="sprite-quote" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></symbol>
+    </svg>
+
     <header class="capsule-nav">
         <a href="#home" class="logo" aria-label="ND College Home">
-            <img src="logo.png" alt="ND College Logo" class="logo-img"> ND College
+            <img src="logo.png" alt="ND College Logo" class="logo-img" width="34" height="34"> ND College
         </a>
-        <nav>
-            <ul class="nav-links">
+        <nav aria-label="Primary">
+            <ul class="nav-links" id="primary-nav-links">
                 <li><a href="#programs">Courses</a></li>
                 <li><a href="#gallery">Campus</a></li>
                 <li><a href="#student-corner">Student Corner</a></li>
@@ -36,19 +83,21 @@
             </ul>
         </nav>
         <div class="nav-actions">
-            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
-                <svg id="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                <svg id="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <button id="theme-toggle" class="theme-btn" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                <svg id="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-moon"></use></svg>
+                <svg id="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="is-hidden" aria-hidden="true"><use href="#sprite-sun"></use></svg>
             </button>
             <a href="#admissions" class="btn btn-pill nav-btn">Apply Now</a>
-            <button class="mobile-menu-btn" aria-label="Open Menu">
-                <svg id="icon-bars" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-                <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            <button class="mobile-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav-links">
+                <svg id="icon-bars" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-bars"></use></svg>
+                <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="is-hidden" aria-hidden="true"><use href="#sprite-close"></use></svg>
             </button>
         </div>
     </header>
 
     <div class="menu-overlay"></div>
+
+    <main id="main-content">
 
     <section id="home" class="hero-modern">
         <div class="hero-text-side reveal">
@@ -57,7 +106,7 @@
             <p>Welcome to ND College, a premier <strong>private institution affiliated with Purnea University</strong>. Experience an education built for the modern world, shaping the leaders of tomorrow.</p>
             <div class="hero-buttons-left">
                 <a href="#programs" class="btn btn-gradient">Explore Courses 
-                    <i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></i>
+                    <i><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-arrow-right"></use></svg></i>
                 </a>
             </div>
             
@@ -69,11 +118,11 @@
         
         <div class="hero-visual-side reveal">
             <div class="image-wrapper main-img">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000&auto=format&fit=crop" alt="ND College Students Collaborating">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1000&auto=format&fit=crop" alt="ND College students collaborating on campus" loading="eager" fetchpriority="high" decoding="async">
             </div>
             <div class="floating-card">
                 <i>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-award"></use></svg>
                 </i>
                 <div>
                     <h4>Affiliated With</h4>
@@ -83,25 +132,25 @@
         </div>
     </section>
 
-    <section class="stats-section">
+    <section class="stats-section" aria-label="College statistics">
         <div class="stats-grid reveal">
             <div class="stat-card">
-                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-users"></use></svg>
                 <h3 class="counter" data-target="2000">0</h3><span>+</span>
                 <p>Active Students</p>
             </div>
             <div class="stat-card">
-                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-trending-up"></use></svg>
                 <h3 class="counter" data-target="95">0</h3><span>%</span>
                 <p>Passing Rate</p>
             </div>
             <div class="stat-card">
-                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="2" y1="21" x2="22" y2="21"></line><path d="M12 17v4"></path><path d="M8 17v4"></path><circle cx="12" cy="9" r="2"></circle><path d="M15 15c0-1.66-1.34-3-3-3s-3 1.34-3 3"></path></svg>
+                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-id-card"></use></svg>
                 <h3 class="counter" data-target="40">0</h3><span>+</span>
                 <p>Expert Faculty</p>
             </div>
             <div class="stat-card">
-                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                <svg class="stat-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-book-open"></use></svg>
                 <h3 class="counter" data-target="15">0</h3><span>+</span>
                 <p>Subjects Offered</p>
             </div>
@@ -115,32 +164,32 @@
         </div>
         <div class="card-grid">
             <div class="card reveal">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1000&auto=format&fit=crop');" aria-label="Science Lab"></div>
+                <img class="card-img" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=1000&auto=format&fit=crop" alt="Students working in a science laboratory" loading="lazy" decoding="async">
                 <div class="card-body">
                     <h3>Bachelor of Science (B.Sc.)</h3>
                     <p>Dive deep into Physics, Chemistry, Mathematics, and Biology with our advanced laboratories.</p>
                     <a href="#admissions" class="link-btn auto-select-btn" data-course="bsc">Apply for B.Sc. 
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-arrow-right"></use></svg>
                     </a>
                 </div>
             </div>
             <div class="card reveal">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop');" aria-label="Library Books"></div>
+                <img class="card-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop" alt="Library shelves filled with books" loading="lazy" decoding="async">
                 <div class="card-body">
                     <h3>Bachelor of Arts (B.A.)</h3>
                     <p>Explore humanities, literature, and social sciences. Perfect preparation for civil services.</p>
                     <a href="#admissions" class="link-btn auto-select-btn" data-course="ba">Apply for B.A. 
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-arrow-right"></use></svg>
                     </a>
                 </div>
             </div>
             <div class="card reveal">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000&auto=format&fit=crop');" aria-label="Commerce Graphs"></div>
+                <img class="card-img" src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=1000&auto=format&fit=crop" alt="Commerce and business growth graphs" loading="lazy" decoding="async">
                 <div class="card-body">
                     <h3>Bachelor of Commerce (B.Com)</h3>
                     <p>Master the fundamentals of accounting, economics, and modern business management strategies.</p>
                     <a href="#admissions" class="link-btn auto-select-btn" data-course="bcom">Apply for B.Com 
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-arrow-right"></use></svg>
                     </a>
                 </div>
             </div>
@@ -152,14 +201,14 @@
             <h2>Life at ND College</h2>
         </div>
         <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=800&auto=format&fit=crop" class="gallery-item large" alt="College Main Campus">
-            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop" class="gallery-item" alt="Graduation Ceremony">
-            <img src="https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=800&auto=format&fit=crop" class="gallery-item" alt="College Library">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop" class="gallery-item wide" alt="Computer IT Lab">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=800&auto=format&fit=crop" class="gallery-item large" alt="Main campus building of ND College" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop" class="gallery-item" alt="Students at a graduation ceremony" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1577412647305-991150c7d163?q=80&w=800&auto=format&fit=crop" class="gallery-item" alt="Interior of the college library" loading="lazy" decoding="async">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop" class="gallery-item wide" alt="Students working in the computer IT lab" loading="lazy" decoding="async">
         </div>
     </section>
 
-    <section class="testimonials reveal">
+    <section class="testimonials reveal" aria-label="Student testimonials">
         <div class="section-header">
             <h2>Student Success Stories</h2>
         </div>
@@ -167,7 +216,7 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="testimonial-card">
-                        <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+                        <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-quote"></use></svg>
                         <p>"ND College gave me the perfect environment to complete my B.Sc. The teachers here are incredibly supportive."</p>
                         <h4>Rahul Kumar</h4>
                         <span>B.Sc Graduate</span>
@@ -175,7 +224,7 @@
                 </div>
                 <div class="swiper-slide">
                     <div class="testimonial-card">
-                        <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+                        <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-quote"></use></svg>
                         <p>"My B.A. years at ND College were truly transformative. The quiet campus at Rambagh is the best place for focused studies."</p>
                         <h4>Priya Singh</h4>
                         <span>B.A. Graduate</span>
@@ -183,7 +232,7 @@
                 </div>
                 <div class="swiper-slide">
                     <div class="testimonial-card">
-                        <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path></svg>
+                        <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-quote"></use></svg>
                         <p>"The commerce department helped me build a strong foundation. Today, I'm pursuing higher studies thanks to ND College."</p>
                         <h4>Amit Patel</h4>
                         <span>B.Com Graduate</span>
@@ -200,43 +249,43 @@
             <p>Download important exam forms, syllabus, and college scheme details directly from here.</p>
         </div>
         <div class="corner-grid">
-            
+
             <div class="corner-card">
                 <div class="corner-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 15l2 2 4-4"></path></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-file-check"></use></svg>
                 </div>
                 <div class="corner-info">
                     <h3>Exam Form Fillup</h3>
                     <p>Purnea University Part 1, 2 & 3 Examination forms for regular students.</p>
                 </div>
-                <a href="#" class="btn btn-outline" onclick="alert('Nothing here for now!'); return false;">Download PDF</a>
+                <button type="button" class="btn btn-outline" disabled title="Coming soon">Download PDF</button>
             </div>
 
             <div class="corner-card">
                 <div class="corner-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-book-open"></use></svg>
                 </div>
                 <div class="corner-info">
                     <h3>Course Syllabus</h3>
                     <p>Latest syllabus for B.Sc, B.A, and B.Com as per the New Education Policy.</p>
                 </div>
-                <a href="#" class="btn btn-outline" onclick="alert('Nothing here for now!'); return false;">Download PDF</a>
+                <button type="button" class="btn btn-outline" disabled title="Coming soon">Download PDF</button>
             </div>
 
             <div class="corner-card">
                 <div class="corner-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 19 2 12 11 5 11 19"></polygon><path d="M22 12A10 10 0 0 1 12 22"></path><path d="M22 12A10 10 0 0 0 12 2"></path></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-fast-forward"></use></svg>
                 </div>
                 <div class="corner-info">
                     <h3>Scholarship & Schemes</h3>
                     <p>Bihar Student Credit Card and other college scheme verification forms.</p>
                 </div>
-                <a href="#" class="btn btn-outline" onclick="alert('Nothing here for now!'); return false;">Download PDF</a>
+                <button type="button" class="btn btn-outline" disabled title="Coming soon">Download PDF</button>
             </div>
 
             <div class="corner-card">
                 <div class="corner-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-file-text"></use></svg>
                 </div>
                 <div class="corner-info">
                     <h3>Cover Page</h3>
@@ -253,36 +302,53 @@
                 <h2>Begin Your Journey</h2>
                 <p>Fill out the inquiry form and our admission counselors will contact you to guide you through the process.</p>
                 <ul class="contact-list">
-                    <li><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></i> Rambagh, Purnea, Bihar, India</li>
-                    <li><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></i> +91 98765 43210</li>
-                    <li><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></i> admission@ndcollege.in</li>
+                    <li>
+                        <a href="https://maps.google.com/?q=Rambagh,+Purnea,+Bihar,+India" target="_blank" rel="noopener noreferrer">
+                            <i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-map-pin"></use></svg></i>
+                            Rambagh, Purnea, Bihar, India
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:+919876543210">
+                            <i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-phone"></use></svg></i>
+                            +91 98765 43210
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:admission@ndcollege.in">
+                            <i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-mail"></use></svg></i>
+                            admission@ndcollege.in
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <form class="contact-form" id="applyForm">
+            <form class="contact-form" id="applyForm" novalidate>
                 <div class="input-group">
-                    <input type="text" placeholder="Student's Full Name" required aria-label="Full Name">
-                    <input type="tel" placeholder="Mobile Number" required aria-label="Mobile Number" pattern="[0-9]{10}">
+                    <input type="text" name="fullName" placeholder="Student's Full Name" required aria-label="Full name" autocomplete="name">
+                    <input type="tel" name="mobileNumber" placeholder="Mobile Number" required aria-label="Mobile number" pattern="[0-9]{10}" inputmode="numeric" maxlength="10" autocomplete="tel" title="Enter a 10-digit mobile number">
                 </div>
 
                 <div class="custom-select-wrapper" id="customCourseSelect">
                     <div class="custom-select-trigger">
                         <span class="custom-select-text">Select Course of Interest</span>
-                        <svg class="custom-select-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg class="custom-select-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-chevron-down"></use></svg>
                     </div>
                     <div class="custom-select-options">
                         <div class="custom-option" data-value="bsc">Bachelor of Science (B.Sc.)</div>
                         <div class="custom-option" data-value="ba">Bachelor of Arts (B.A.)</div>
                         <div class="custom-option" data-value="bcom">Bachelor of Commerce (B.Com)</div>
                     </div>
-                    
-                    <input type="hidden" id="courseSelect" required>
+
+                    <input type="hidden" name="course" id="courseSelect" required>
                 </div>
 
-                <textarea id="inquiryText" rows="3" placeholder="Any questions? (Optional)" aria-label="Questions" maxlength="1000" style="resize: none; overflow: hidden;"></textarea>
+                <textarea id="inquiryText" name="message" rows="3" placeholder="Any questions? (Optional)" aria-label="Questions" maxlength="1000" style="resize: none; overflow: hidden;"></textarea>
                 <button type="submit" class="btn btn-gradient btn-block">Submit Inquiry</button>
             </form>
         </div>
     </section>
+
+    </main>
 
     <footer>
         <div class="footer-content">
@@ -291,22 +357,28 @@
                 <p style="color: var(--primary); font-weight: 600; margin-bottom: 5px;">A Private College Affiliated to Purnea University</p>
                 <p>Empowering minds in Purnea since 1986.</p>
             </div>
+            
             <div class="socials">
-                <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a>
+                <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-facebook"></use></svg></a>
+                <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-instagram"></use></svg></a>
+                <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-twitter"></use></svg></a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="year"></span> ND College, Purnea. All rights reserved.</p>
+            <p>&copy; <span id="year">2026</span> ND College, Purnea. All rights reserved.</p>
         </div>
     </footer>
 
-    <a href="#home" class="scroll-top" aria-label="Scroll to Top">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    <a href="#home" class="scroll-top" aria-label="Scroll to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-arrow-up"></use></svg>
     </a>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+    <script src="theme.js" defer></script>
+    <script src="navigation.js" defer></script>
+    <script src="animations.js" defer></script>
+    <script src="forms.js" defer></script>
+    <script src="swiper-init.js" defer></script>
+    <script src="misc.js" defer></script>
 </body>
 </html>
