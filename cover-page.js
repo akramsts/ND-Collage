@@ -12,6 +12,25 @@
         ["in-paper", "out-paper", "Paper Code/Name"],
     ];
 
+    const A4_WIDTH_PX = 793.7;
+    const A4_HEIGHT_PX = 1122.5;
+
+    function fitA4Preview() {
+        const wrapper = document.getElementById("a4ScaleWrapper");
+        const sheet = document.getElementById("print-area");
+        if (!wrapper || !sheet) return;
+
+        if (window.innerWidth > 768) {
+            sheet.style.transform = "";
+            wrapper.style.height = "";
+            return;
+        }
+
+        const scale = wrapper.clientWidth / A4_WIDTH_PX;
+        sheet.style.transform = `scale(${scale})`;
+        wrapper.style.height = `${A4_HEIGHT_PX * scale}px`;
+    }
+
     function formatDate(dateStr) {
         if (!dateStr) return "DD / MM / YYYY";
         const parts = dateStr.split("-");
@@ -40,10 +59,12 @@
         step2.classList.add("active");
         step2.setAttribute("aria-hidden", "false");
 
-        window.scrollTo(0, 0);
-
         step2.setAttribute("tabindex", "-1");
-        step2.focus();
+        step2.focus({ preventScroll: true });
+
+        fitA4Preview();
+
+        window.scrollTo(0, 0);
     }
 
     function goToStep1() {
@@ -64,5 +85,7 @@
         if (generateBtn) generateBtn.addEventListener("click", goToStep2);
         if (editBtn) editBtn.addEventListener("click", goToStep1);
         if (printBtn) printBtn.addEventListener("click", () => window.print());
+
+        window.addEventListener("resize", fitA4Preview);
     });
 })();

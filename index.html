@@ -111,7 +111,7 @@
             </div>
             
             <div class="hero-mini-stats">
-                <div><strong>20+</strong> Years of Trust</div>
+                <div><strong>40+</strong> Years of Trust</div>
                 <div><strong>Top</strong> in Purnea</div>
             </div>
         </div>
@@ -328,18 +328,13 @@
                     <input type="tel" name="mobileNumber" placeholder="Mobile Number" required aria-label="Mobile number" pattern="[0-9]{10}" inputmode="numeric" maxlength="10" autocomplete="tel" title="Enter a 10-digit mobile number">
                 </div>
 
-                <div class="custom-select-wrapper" id="customCourseSelect">
-                    <div class="custom-select-trigger">
-                        <span class="custom-select-text">Select Course of Interest</span>
-                        <svg class="custom-select-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#sprite-chevron-down"></use></svg>
-                    </div>
-                    <div class="custom-select-options">
-                        <div class="custom-option" data-value="bsc">Bachelor of Science (B.Sc.)</div>
-                        <div class="custom-option" data-value="ba">Bachelor of Arts (B.A.)</div>
-                        <div class="custom-option" data-value="bcom">Bachelor of Commerce (B.Com)</div>
-                    </div>
-
-                    <input type="hidden" name="course" id="courseSelect" required>
+                <div class="input-group">
+                    <select name="course" id="courseSelect" required aria-label="Course of interest">
+                        <option value="" disabled selected hidden>Select Course of Interest</option>
+                        <option value="bsc">Bachelor of Science (B.Sc.)</option>
+                        <option value="ba">Bachelor of Arts (B.A.)</option>
+                        <option value="bcom">Bachelor of Commerce (B.Com)</option>
+                    </select>
                 </div>
 
                 <textarea id="inquiryText" name="message" rows="3" placeholder="Any questions? (Optional)" aria-label="Questions" maxlength="1000" style="resize: none; overflow: hidden;"></textarea>

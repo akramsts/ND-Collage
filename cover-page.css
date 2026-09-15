@@ -56,9 +56,13 @@ svg { display: block; flex-shrink: 0; }
 
 .main-container { padding: 40px 20px; display: flex; justify-content: center; }
 
-.step-section { display: none; width: 100%; animation: fadeIn 0.4s ease-in-out; }
+.step-section { display: none; width: 100%; animation: simpleFade 0.4s ease-in-out; }
 .step-section.active { display: flex; flex-direction: column; align-items: center; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@keyframes simpleFade { 
+    from { opacity: 0; } 
+    to { opacity: 1; } 
+}
 
 .form-card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); width: 100%; max-width: 700px; }
 .form-card h3 { font-size: 1.8rem; margin-bottom: 5px; color: #1e293b; }
@@ -373,15 +377,21 @@ input:focus, input:focus-visible {
     .no-print { display: none !important; }
     .main-container { padding: 0; }
     .a4-sheet { box-shadow: none; width: 210mm; height: 297mm; padding: 10mm; margin: 0; transform: none !important; }
+    .a4-scale-wrapper { height: auto !important; overflow: visible !important; }
+}
+
+.a4-scale-wrapper {
+    width: 100%;
+    max-width: 210mm;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
     .input-row { flex-direction: column; gap: 0; }
     .action-buttons { flex-direction: column; }
-    
-    .a4-sheet { 
-        transform: scale(0.42); 
-        transform-origin: top center; 
-        margin-bottom: -650px; 
+
+    .a4-sheet {
+        transform-origin: top left;
     }
 }
